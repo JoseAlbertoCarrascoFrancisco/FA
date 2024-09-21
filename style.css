@@ -1,0 +1,216 @@
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Para evitar barras de desplazamiento */
+}
+
+.text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; /* Altura suficiente para el texto */
+    position: fixed; /* Cambiado de absolute a fixed */
+    top: 0;
+    width: 100%;
+    animation: pulsate 2s infinite; /* Animación para el texto */
+    z-index: 999; /* Asegura que el texto esté por encima de los demás elementos */
+}
+
+.text-above {
+    color: #fff;
+    font-size: 30px; /* Tamaño del texto */
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-weight: bold; /* Grosor del texto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra del texto */
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide la pantalla en 3 columnas iguales */
+    width: 100vw;
+    height: calc(100vh - 60px); /* Ajusta la altura para el espacio del texto */
+}
+
+.flower-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flower {
+    height: 250px; /* Tamaño moderado para la flor */
+    width: 250px;  /* Tamaño moderado para la flor */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #000;
+    animation: pulsate 2s infinite;
+}
+
+.mid {
+    width: 60px; /* Tamaño moderado para el centro de la flor */
+    height: 60px; /* Tamaño moderado para el centro de la flor */
+    border-radius: 50%;
+    background: radial-gradient(circle, #000, #ff5e00, #000);
+    z-index: 4;
+    background-size: 5px 5px;
+    filter: drop-shadow(0 0 8px #682600);
+}
+
+.Petal1, .Petal2, .Petal3 {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.Petal1 {
+    width: 150px; /* Tamaño moderado para los pétalos */
+    height: 35px; /* Tamaño moderado para los pétalos */
+    background: radial-gradient(circle, #ff5e00, #ffbb00);
+    filter: drop-shadow(0 0 5px #e05200);
+}
+
+.Petal1.p1 {
+    transform: rotate(22.5deg);
+}
+.Petal1.p2 {
+    transform: rotate(67.5deg);
+}
+.Petal1.p3 {
+    transform: rotate(110.5deg);
+}
+.Petal1.p4 {
+    transform: rotate(157.5deg);
+}
+
+.Petal2 {
+    width: 250px; /* Tamaño moderado para los pétalos */
+    height: 50px; /* Tamaño moderado para los pétalos */
+    background: radial-gradient(circle, #ff5e00, #fbd702);
+    filter: drop-shadow(0 0 5px #e05200);
+}
+
+.Petal2.p2 {
+    transform: rotate(90deg);
+}
+.Petal2.p3 {
+    transform: rotate(45deg);
+}
+.Petal2.p4 {
+    transform: rotate(135deg);
+}
+
+.Petal3 {
+    width: 250px; /* Tamaño moderado para los pétalos */
+    height: 50px; /* Tamaño moderado para los pétalos */
+    background: radial-gradient(circle, #ff5e00, #fbd702);
+    filter: drop-shadow(0 0 5px #fbd702);
+}
+
+.Petal3.p1 {
+    transform: rotate(22.5deg);
+}
+.Petal3.p2 {
+    transform: rotate(67.5deg);
+}
+.Petal3.p3 {
+    transform: rotate(110.5deg);
+}
+.Petal3.p4 {
+    transform: rotate(157.5deg);
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1.5);
+    }
+    50% {
+        transform: scale(1.6);
+    }
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+/* Ajuste general para dispositivos móviles */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Solo una columna en móviles */
+        justify-items: center; /* Centra el contenido */
+    }
+
+    .flower {
+        height: 180px; /* Tamaño más pequeño para las flores en móviles */
+        width: 180px;
+    }
+
+    .mid {
+        width: 45px; /* Ajuste del tamaño del centro de la flor */
+        height: 45px;
+    }
+
+    .Petal1 {
+        width: 100px;
+        height: 25px;
+    }
+
+    .Petal2, .Petal3 {
+        width: 140px;
+        height: 35px;
+    }
+
+    .text-container {
+        height: 80px; /* Aumenta la altura del contenedor del texto */
+    }
+
+    .text-above {
+        font-size: 18px; /* Tamaño de texto más pequeño en móviles */
+    }
+}
+
+/* Para pantallas aún más pequeñas */
+@media (max-width: 480px) {
+    .text-above {
+        font-size: 16px;
+    }
+
+    .flower {
+        height: 150px;
+        width: 150px;
+    }
+
+    .mid {
+        width: 40px;
+        height: 40px;
+    }
+
+    .Petal1 {
+        width: 100px;
+        height: 25px;
+    }
+
+    .Petal2, .Petal3 {
+        width: 150px;
+        height: 35px;
+    }
+}
+
+/* Estilos específicos para móviles (pantallas pequeñas) */
+@media (max-width: 768px) {
+    .text-container {
+        justify-content: center;
+        align-items: center;
+        height: 50px; /* Ajusta la altura para móviles */
+    }
+
+    .text-above {
+        font-size: 20px; /* Reduce el tamaño de la fuente para móviles */
+        font-weight: bold;
+        text-shadow: none; /* Elimina la sombra en móviles si prefieres */
+    }
+}
